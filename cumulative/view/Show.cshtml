@@ -1,17 +1,10 @@
-@model YourNamespace.Models.Teacher
 
+@model cumalative.Models.Teacher
 @{
-    ViewData["Title"] = "Teacher Details";
+    ViewBag.Title = "Show";
 }
 
-<h1>Teacher Details</h1>
-
-<div>
-    <h2>@Model.Name</h2>
-    <p>Hire Date: @Model.HireDate.ToShortDateString()</p>
-    <p>Salary: @Model.Salary</p>
+<a class="navlink" href="/Teacher/List">Back To Teacher</a>
+<div id="containershow">
+    <h2>@Model.teacherFname @Model.teacherlname</h2>
 </div>
-
-<p>
-    <a href="/Teacher/List">Back to List</a>
-</p>

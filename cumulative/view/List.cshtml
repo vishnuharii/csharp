@@ -1,28 +1,17 @@
-@model IEnumerable<YourNamespace.Models.Teacher>
+@model IEnumerable<cumalative.Models.Teacher>
+    @{
+    ViewBag.Title = "List";
+    }
 
-@{
-    ViewData["Title"] = "Teacher List";
-}
+    <h2>List</h2>
+    <p>This page should be showing information about all teachers</p>
 
-<h1>Teacher List</h1>
-
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Hire Date</th>
-            <th>Salary</th>
-        </tr>
-    </thead>
-    <tbody>
+    <div id="containerlist">
+        <h2>List of Authors</h2>
         @foreach (var teacher in Model)
-        {
-            <tr>
-                <td>@teacher.Name</td>
-                <td>@teacher.HireDate.ToShortDateString()</td>
-                <td>@teacher.Salary</td>
-                <td><a href="/Teacher/Show/@teacher.TeacherId">Details</a></td>
-            </tr>
-        }
-    </tbody>
-</table>
+    {
+        <div class="listitem row">
+            <div class="col-md-12"><a href="/Teacher/Show/@teacher.teacherId">@teacher.teacherFname @teacher.teacherlname</a></div>
+        </div>
+    }
+    </div>

@@ -1,41 +1,40 @@
+using cumalative.Models;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
-using YourNamespace.Models;
 
-namespace YourNamespace.Controllers
+namespace cumalative.Controllers
 {
-    public class TeacherController : Controller
+    public class teacherController : Controller
     {
-        private readonly TeacherDataController _teacherDataController;
-
-        public TeacherController()
-        {
-            _teacherDataController = new TeacherDataController(new SchoolDbContext());
-        }
-
-        // GET: Teacher
+        // GET: teacher
         public ActionResult Index()
         {
             return View();
+
+
         }
 
-        // GET: /Teacher/List
+
+        //GET : /Author/List
         public ActionResult List()
         {
-            IEnumerable<Teacher> teachers = _teacherDataController.GetTeachers();
-            return View(teachers);
+            TeacherdataController controller = new TeacherdataController();
+            IEnumerable<Teacher> Teacher = controller.ListTeacher();
+            return View(Teacher);
         }
 
-        // GET: /Teacher/Show/{id}
+        //GET : /Author/Show/{id}
         public ActionResult Show(int id)
         {
-            Teacher teacher = _teacherDataController.GetTeacher(id);
-            if (teacher == null)
-            {
-                return HttpNotFound();
-            }
+            TeacherdataController controller = new TeacherdataController();
+            Teacher NewTeacher = controller.Findteacher(id);
 
-            return View(teacher);
+
+            return View(NewTeacher);
         }
+
     }
 }
